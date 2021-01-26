@@ -1,5 +1,3 @@
-## Welcome 
-
 Tips and tricks for breaking computers! 
 
 <details><summary>Active Directory</summary>
