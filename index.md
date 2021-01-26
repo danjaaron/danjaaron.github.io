@@ -2,7 +2,6 @@
 <details><summary>Active Directory</summary>
 
 <p>
-### test header
 ```python
 print("hello world!")
 ```
