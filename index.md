@@ -4,6 +4,7 @@ Tips and tricks for breaking computers!
 
 <details><summary>Active Directory</summary>
 
+<p>
 ### Enumeration
 - [Enumerating the Domain Name](danjaaron.github.io/enumerate/domain-name)
 - [Enumerating Domain User Accounts]
@@ -17,4 +18,5 @@ Tips and tricks for breaking computers!
 ### Exfiltration
 - [Exfiltrating with Evil-WinRM]
 
+</p>
 </details>
