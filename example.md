@@ -1,7 +1,3 @@
-layout: page
-title: "Example"
-permalink: /example/
-
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/danjaaron/danjaaron.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
