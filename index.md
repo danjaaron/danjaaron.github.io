@@ -1,11 +1,11 @@
 ## Welcome 
 
-Learn how to break computers alongside a clueless noob. 
+Tips and tricks for breaking computers! 
 
-## Active Directory 
+## [Active Directory](danjaaron.github.io/ad) 
 
 ### Enumeration
-- [Enumerating the Domain Name](danjaaron.github.io/example)
+- [Enumerating the Domain Name](danjaaron.github.io/e)
 - [Enumerating Domain User Accounts]
 
 ### Exploitation
