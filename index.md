@@ -2,7 +2,7 @@
 
 Tips and tricks for breaking computers! 
 
-## Active Directory
+<details><summary>Active Directory</summary>
 
 ### Enumeration
 - [Enumerating the Domain Name](danjaaron.github.io/enumerate/domain-name)
@@ -17,3 +17,4 @@ Tips and tricks for breaking computers!
 ### Exfiltration
 - [Exfiltrating with Evil-WinRM]
 
+</details>
