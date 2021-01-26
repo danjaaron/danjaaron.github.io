@@ -1,5 +1,7 @@
 ## Welcome 
 
+Learn how to break computers alongside a clueless noob. 
+
 ## Active Directory 
 
 ### Enumeration
