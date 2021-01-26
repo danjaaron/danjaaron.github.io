@@ -5,18 +5,10 @@ Tips and tricks for breaking computers!
 <details><summary>Active Directory</summary>
 
 <p>
-### Enumeration
-- [Enumerating the Domain Name](danjaaron.github.io/enumerate/domain-name)
-- [Enumerating Domain User Accounts]
+#### yes, even hidden code blocks!
 
-### Exploitation
-- [ASEPRoasting Domain User Accounts]
-
-### Privilege Escalation
-- [Dumping Secrets with Impacket]
-
-### Exfiltration
-- [Exfiltrating with Evil-WinRM]
-
+```python
+print("hello world!")
+```
 </p>
 </details>
