@@ -2,7 +2,7 @@
 
 Tips and tricks for breaking computers! 
 
-## [Active Directory](danjaaron.github.io/ad) 
+## Active Directory
 
 ### Enumeration
 - [Enumerating the Domain Name](danjaaron.github.io/e)
