@@ -12,3 +12,11 @@
 ### Exfiltration
 - [Exfiltrating with Evil-WinRM]
 
+
+/*
+
+To test locally with jekyll:
+
+bundle exec jekyll serve
+
+*/

@@ -1,12 +1,15 @@
-### About 
 
-This site is a collection of notes and information related to infosec and HackTheBox. 
+<div hidden>
+/* work in progress */
+### Walkthroughs
+- 
+</div>
 
-Use responsibly and legally.  
-
+<div hidden>
+/* work in progress */
 ### Guides
-
 - [Active Directory](/active-directory)
+</div>
 
 ### Resources
 - [0x00sec](https://0x00sec.org/)
