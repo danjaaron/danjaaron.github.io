@@ -6,7 +6,7 @@
 </div>
 
 ### Guides
-- [Active Directory](/AD)
+- [Active Directory](/active-directory)
 
 ### Resources
 - [0x00sec](https://0x00sec.org/)
