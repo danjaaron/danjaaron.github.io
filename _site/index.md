@@ -5,11 +5,8 @@
 - 
 </div>
 
-<div hidden>
-/* work in progress */
 ### Guides
-- [Active Directory](/active-directory)
-</div>
+- [Active Directory](/AD)
 
 ### Resources
 - [0x00sec](https://0x00sec.org/)
