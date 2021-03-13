@@ -5,8 +5,11 @@
 - 
 </div>
 
-### Guides
+### Network Hacking
 - [Active Directory](/active-directory)
+
+### Game Hacking 
+- [Faster Than Light](/ftl)
 
 ### Resources
 - [0x00sec](https://0x00sec.org/)
