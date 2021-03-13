@@ -1,6 +1,6 @@
 ## Faster Than Light (FTL) 
 
-CODE: https://github.com/danjaaron/FTL-Hacks.git
+CODE: [https://github.com/danjaaron/FTL-Hacks.git](https://github.com/danjaaron/FTL-Hacks.git)
 
 FTL is a great indie game in which the player controls a spaceship and flies across the universe while fleeing from a rebel fleet. 
 
