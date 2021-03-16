@@ -2,7 +2,7 @@
 
 CODE: [https://github.com/danjaaron/FTL-Hacks.git](https://github.com/danjaaron/FTL-Hacks.git)
 
-[Download the standalone trainer (.exe) here](/FTLScrapTrainer.exe)
+/*[Download the standalone trainer (.exe) here](/FTLScrapTrainer.exe)*/
 
 FTL is a great indie game in which the player controls a spaceship and flies across the universe while fleeing from a rebel fleet. 
 

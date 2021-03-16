@@ -11,6 +11,12 @@
 ### Game Hacking 
 - [Faster Than Light](/ftl)
 
+
+### Other Platforms
+- [YouTube](https://www.youtube.com/channel/UCbTeB7N1bBcAJsopsU5YAkg)
+- [Patreon](https://www.patreon.com/danjaaron)
+
+
 ### Resources
 - [0x00sec](https://0x00sec.org/)
 - [Breaking Systems for Fun and Profit](https://breakingsystemsforfunandprofit.com)
