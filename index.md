@@ -12,7 +12,7 @@
 - [Faster Than Light](/ftl)
 - [Frostpunk](/frostpunk)
 
-## Cheat Engine
+### Cheat Engine
 - [Finding Pointers and Offsets](/cheat-engine-basic-pointers)
 
 ### Other Platforms
