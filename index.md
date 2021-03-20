@@ -10,7 +10,10 @@
 
 ### Game Hacking 
 - [Faster Than Light](/ftl)
+- [Frostpunk](/frostpunk)
 
+## Cheat Engine
+- [Finding Pointers and Offsets](/cheat-engine-basic-pointers)
 
 ### Other Platforms
 - [YouTube](https://www.youtube.com/channel/UCbTeB7N1bBcAJsopsU5YAkg)
