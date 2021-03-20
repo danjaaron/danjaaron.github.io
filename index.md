@@ -14,6 +14,7 @@
 
 ### Cheat Engine
 - [Finding Pointers and Offsets](/cheat-engine-basic-pointers)
+- [Finding Multi-Level Pointers](/cheat-engine-multi-pointers)
 
 ### Other Platforms
 - [YouTube](https://www.youtube.com/channel/UCbTeB7N1bBcAJsopsU5YAkg)
