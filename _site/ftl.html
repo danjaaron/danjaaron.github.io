@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=7dadf118003dea8a7cedc1cfa18856df442a0120">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Faster Than Light (FTL) | danjaaron</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Faster Than Light (FTL)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="hax0r central" />
+<meta property="og:description" content="hax0r central" />
+<link rel="canonical" href="http://localhost:4000/ftl.html" />
+<meta property="og:url" content="http://localhost:4000/ftl.html" />
+<meta property="og:site_name" content="danjaaron" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Faster Than Light (FTL)" />
+<script type="application/ld+json">
+{"description":"hax0r central","url":"http://localhost:4000/ftl.html","headline":"Faster Than Light (FTL)","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>danjaaron</h1>
+        </a>
+        <h2>hax0r central</h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/danjaaron/danjaaron.github.io" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2 id="faster-than-light-ftl">Faster Than Light (FTL)</h2>
+<p>+======================================================+</p>
+<p>|
+March 11, 2021 |
+<a href="https://github.com/danjaaron/FTL-Hacks.git">Source Code</a> |
+<a href="https://www.patreon.com/posts/ftl-scrap-48864454">Standalone .EXE (x86)</a>
+|</p>
+<p>+======================================================+</p>
+<p>FTL is a great indie game in which the player controls a spaceship and flies across the universe while fleeing from a rebel fleet.</p>
+<p>It's sort of like The Oregon Trail in space, with some RTS elements. I highly suggest you check it out.</p>
+<p>As the player flies across the universe, they need to stop at stores to buy more fuel as well as weapons, crew members, etc.</p>
+<p>Unfortunately I kept dying before I could pick up any of the really cool weapons.</p>
+<p>So, I decided to target the in-game currency with Cheat Engine, to see if I could hack my way into infinite moneys.</p>
+<p>This was actually fairly easy and is a great first target for anyone who wants to get started with Cheat Engine.</p>
+<p>Below is a demo of the work-in-progress trainer:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XZAXIxBawkE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>I scripted with Lua in Cheat Engine to make a cheat table, and then a full standalone trainer.</p>
+<p>The tl;dr is that I scanned for the memory address which matched the value of my scrap (currency) while I bought and sold things at the store, then I scanned for pointers to that address, then I disassembled that region in memory, and then I wrote a script to alter the &quot;mov&quot; assembly instruction which I dissassembled. This instruction was called any time my scrap changed, and so I guessed that maybe it was moving an updated balance into my player wallet. So instead of moving the correct value, I edited the instruction to read &quot;mov ...., (float) 99999&quot;. This causes my wallet to be maxed out any time I have any kind of encounter which might change the balance, including random encounters as well as interactions with the shop (buying / selling).</p>
+<p>The great thing about Cheat Engine is that it's easy to extend this trainer in the future to add checkboxes for more cheats, which I'll probably do in the future.</p>
+
+      </section>
+    </div>
+
+    
+  </body>
+</html>

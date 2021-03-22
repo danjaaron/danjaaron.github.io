@@ -1,5 +1,7 @@
 ## How 2 Pwn: Active Directory
 
+March 10, 2021
+
 This is a guide for a straightforward Active Directory attack scenario, YMMV.
 
 ### 0. Enumerate Shares

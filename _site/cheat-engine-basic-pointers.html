@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=7dadf118003dea8a7cedc1cfa18856df442a0120">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to find pointers and offsets for a value using Cheat Engine | danjaaron</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="How to find pointers and offsets for a value using Cheat Engine" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="hax0r central" />
+<meta property="og:description" content="hax0r central" />
+<link rel="canonical" href="http://localhost:4000/cheat-engine-basic-pointers.html" />
+<meta property="og:url" content="http://localhost:4000/cheat-engine-basic-pointers.html" />
+<meta property="og:site_name" content="danjaaron" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to find pointers and offsets for a value using Cheat Engine" />
+<script type="application/ld+json">
+{"description":"hax0r central","url":"http://localhost:4000/cheat-engine-basic-pointers.html","headline":"How to find pointers and offsets for a value using Cheat Engine","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>danjaaron</h1>
+        </a>
+        <h2>hax0r central</h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/danjaaron/danjaaron.github.io" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2 id="how-to-find-pointers-and-offsets-for-a-value-using-cheat-engine">How to find pointers and offsets for a value using Cheat Engine</h2>
+<p>March 19, 2021</p>
+<ol>
+<li>
+<p>Find the address of the value</p>
+</li>
+<li>
+<p>Find what accesses that address</p>
+</li>
+<li>
+<p>Look at &quot;more information&quot; for any of those items, so long as they show pointer dereference with brackets (&quot;[__]&quot;)</p>
+</li>
+<li>
+<p>Record the pointer base address and offset directly from the debugger</p>
+</li>
+<li>
+<p>Search for the pointer base address in hex</p>
+</li>
+<li>
+<p>Record the bottom result address from the above search</p>
+</li>
+<li>
+<p>Manually add a pointer using the result address (from #6) and base offset (from #4)</p>
+</li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6tKnCXT866M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      </section>
+    </div>
+
+    
+  </body>
+</html>

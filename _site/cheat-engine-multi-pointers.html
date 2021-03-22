@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=7dadf118003dea8a7cedc1cfa18856df442a0120">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>danjaaron | hax0r central</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="danjaaron" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="hax0r central" />
+<meta property="og:description" content="hax0r central" />
+<link rel="canonical" href="http://localhost:4000/cheat-engine-multi-pointers.html" />
+<meta property="og:url" content="http://localhost:4000/cheat-engine-multi-pointers.html" />
+<meta property="og:site_name" content="danjaaron" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="danjaaron" />
+<script type="application/ld+json">
+{"description":"hax0r central","url":"http://localhost:4000/cheat-engine-multi-pointers.html","headline":"danjaaron","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>danjaaron</h1>
+        </a>
+        <h2>hax0r central</h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/danjaaron/danjaaron.github.io" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <p>March 20, 2021</p>
+<ol>
+<li>
+<p>Find the address of the value</p>
+</li>
+<li>
+<p>Find what accesses the above address and record the instruction</p>
+</li>
+</ol>
+<p>e.g.</p>
+<pre><code>0042814E - 89 46 18  - mov [esi+18],eax
+</code></pre>
+<ol start="3">
+<li>Record the base address from above</li>
+</ol>
+<p>e.g.</p>
+<pre><code>0042814E - 89 46 18  - mov [esi+18],eax
+ESI=018198D0
+</code></pre>
+<ol start="4">
+<li>Search for this address using an exact hex scan and record the result</li>
+</ol>
+<p>e.g.</p>
+<pre><code>0042814E - 89 46 18  - mov [esi+18],eax
+ESI=018198D0 --search--&gt; 017A8BA8
+</code></pre>
+<ol start="5">
+<li>Repeat steps 4 and 5 until no more results come up</li>
+</ol>
+<p>e.g</p>
+<pre><code>0042814E - 89 46 18  - mov [esi+18],eax
+ESI=018198D0 --search--&gt; 017A8BA8
+017A8BA8 --search--&gt; 01800EAC
+01800EAC --search--&gt; None
+NEW ADDRESS = 01800EAC  
+</code></pre>
+<ol start="6">
+<li>Repeat steps 2-6 until you find a static pointer</li>
+</ol>
+<p>e.g.</p>
+<pre><code>&quot;Tutorial-i386.exe&quot;+2426E0
+*** static pointer, we've reached the bottom
+</code></pre>
+<ol start="7">
+<li>Assemble a pointer from the static address to the initial value (from step 1) manually.</li>
+</ol>
+<p>7.a. Click &quot;Add Address Manually&quot;, check &quot;Pointer&quot;, and input the static address (&quot;Tutorial-i386.exe&quot;+2426E0) as the address.</p>
+<p>7.b. Collect the offset from each of the previous steps from the instructions that were recorded.</p>
+<pre><code>e.g. 
+
+0042814E - 89 46 18  - mov [esi+18],eax
+ESI=018198D0 --search--&gt; 017A8BA8
+017A8BA8 --search--&gt; 01800EAC
+01800EAC --search--&gt; None
+NEW ADDRESS = 01800EAC
+
+=&gt; OFFSET=18
+</code></pre>
+<p>7.c. Add the offsets to the pointer dialog box in the order that they were recorded.</p>
+<pre><code>e.g. 
+
+My instructions were:
+
+	0042814E - 89 46 18  - mov [esi+18],eax
+	004280C0 - 83 7E 14 00 - cmp dword ptr [esi+14],00
+	0042807C - 83 7E 0C 00 - cmp dword ptr [esi+0C],00
+	
+and, from top to bottom, my pointer dialog box reads the offsets like this:
+
+		18
+		0
+		14
+		0C
+		&quot;Tutorial-i386.exe&quot;+2426E0
+</code></pre>
+<ol start="8">
+<li>The pointer you've made might not point to the correct value at first.</li>
+</ol>
+<p>Look at the addresses in blue which appear to the right of each offset that you input.</p>
+<p>Move around the offsets and zeros so that those addresses match the addresses you've recorded.</p>
+<p>To the right of each offset you've recorded, you should see the corresponding address you recorded.</p>
+<p>Once these are all correct, the pointer you've made will point to the initial value you were attempting to capture.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JMmaCMe9rEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      </section>
+    </div>
+
+    
+  </body>
+</html>
