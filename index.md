@@ -18,7 +18,6 @@
 
 ### Other Platforms
 - [YouTube](https://www.youtube.com/channel/UCbTeB7N1bBcAJsopsU5YAkg)
-- [Patreon](https://www.patreon.com/danjaaron)
 
 
 ### Resources
