@@ -1,14 +1,13 @@
 ## Hacking Frostpunk with Cheat Engine
 
-+======================================================+
++==============================+
 
 |	
 March 17, 2021 | 
-[Source Code](https://github.com/danjaaron/Frostpunk-Hack.git) |
-[Standalone .EXE (x86)](https://www.patreon.com/posts/frostpunk-god-48811435)
+[Source Code](https://github.com/danjaaron/Frostpunk-Hack.git) 
 |
 
-+======================================================+
++==============================+
 
 Frostpunk is a cool indie RTS-like resource management strategy sim set in a world which has collapsed under an inexplicable global winter.
 

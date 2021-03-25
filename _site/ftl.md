@@ -1,14 +1,12 @@
 ## Faster Than Light (FTL) 
 
-+======================================================+
++==============================+
 
 |	
 March 11, 2021 | 
 [Source Code](https://github.com/danjaaron/FTL-Hacks.git) |
-[Standalone .EXE (x86)](https://www.patreon.com/posts/ftl-scrap-48864454)
-|
 
-+======================================================+
++==============================+
 
 FTL is a great indie game in which the player controls a spaceship and flies across the universe while fleeing from a rebel fleet. 
 
