@@ -9,6 +9,8 @@
 - [Active Directory](/active-directory)
 
 ### Game Hacking 
+- [Diablo](/diablo)
+- [Fallout](/fallout)
 - [Faster Than Light](/ftl)
 - [Frostpunk](/frostpunk)
 
