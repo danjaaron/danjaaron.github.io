@@ -21,6 +21,8 @@
 ### Other Platforms
 - [YouTube](https://www.youtube.com/channel/UCbTeB7N1bBcAJsopsU5YAkg)
 
+### Publications 
+- [Early stem cell aging in the mature brain (Cell Stem Cell)](https://pubmed.ncbi.nlm.nih.gov/33848469/)
 
 ### Resources
 - [0x00sec](https://0x00sec.org/)
